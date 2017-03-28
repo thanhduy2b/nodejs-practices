@@ -15,7 +15,7 @@ module.exports = function(filename, callback) {
       };
 
     callback(null, {
-      _id: $('pgterms\\:ebook').attr('rdf:about').replace('ebooks/', ''),
+      _id: $('pgterms\\:ebook').attr('rdf:about'),//.replace('ebooks/', ''),
       title: $('dcterms\\:title').text(),
       authors: $('dcterms\\:creator pgterms\\:agent').children('pgterms\\:name').text(),
       subjects: $('dcam\\:memberOf[rdf\\:resource$="/LCSH"]').map(function(index, elem) {
