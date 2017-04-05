@@ -24,9 +24,9 @@ module.exports = function(app) {
     });
 
     app.post('/api/todo', function(req, res) {
-        if(req.body.id) {
+        if(req.body._id) {
             Todos.findByIdAndUpdate(
-                req.body.id, {
+                req.body._id, {
                     todo: req.body.todo,
                     isDone: req.body.isDone,
                     hasAttachment: req.body.hasAttachment
@@ -52,7 +52,7 @@ module.exports = function(app) {
     });
 
     app.delete('/api/todo', function(req, res) {
-        Todos.findByIdAndRemove(req.body.id, function(err) {
+        Todos.findByIdAndRemove(req.body._id, function(err) {
             if(err) throw err;
             res.send('Success');
         });
